@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        #container{
+            width:800px;
+            height:400px;
+            margin:50px auto;
+            background:green;
+            position: relative;
+        }
+        #img{
+            diaplay:none;
+        }
+        #img .selected{
+            display:block;
+        }
+        #nav{
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+        }
+        #nav li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #ffffff;
+            margin-right: 10px;
+            text-align: center;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="nav">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="img">
+    <a class="selected" href="#"><img src="img/bj_1_01_9coq.png"/></a>
+    <a href="#"><img src="img/bj_1_02_qze7.png"/></a>
+    <a href="#"><img src="img/bj_1_03_emta.png"/></a>
+    <a href="#"><img src="img/bj_1_04_mdn0.png"/></a>
+    </div>
+</div>
+</body>
+</html>
