@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        img{
+            border: 0;
+        }
+
+        #container{
+            width: 310px;
+            height: 310px;
+            margin: 100px auto;
+            overflow: hidden;
+            position: relative;
+        }
+        #tab{
+            position: absolute;
+            right: 20px;
+            bottom: 10px;
+        }
+        #tab li{
+            width: 20px;
+            height: 20px;
+            float: left;
+            background: #000000;
+            color: #fff;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 20px;
+            cursor: pointer;
+        }
+        #tab .selected{
+            background: orange;
+        }
+        #content img{
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+        #arrow{
+            position: absolute;
+            left: 20px;
+            bottom: 10px;
+        }
+        #arrow span{
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <ul id="tab">
+        <li class="selected">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <div id="content">
+        <img class = "selected" src="img/22154417.jpg"/></a>
+        <img src="img/22154301.jpg"/></a>
+        <img src="img/22154445.jpg"/></a>
+        <img src="img/22154445_1.jpg"/></a>
+    </div>
+    <div id="arrow">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
+    </div>
+</div>
+<script>
+    var oContainer = document.getElementById("container");
+    var oTab = document.getElementById("tab");
+    var aLi = oTab.getElementsByTagName("li");
+    var oContent= document.getElementById("content");
+    var aImg = oContent.getElementsByTagName("img");
+    var iNow = 0;
+    var oPrev =document.getElementById("prev");
+    var oNext =document.getElementById("next");
+
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index = i;
+        aLi[i].onmouseover = function () {
+        changeImg(this.index);
+            iNow = this.index;
+     };
+    };
+    oPrev.onclick = function(){
+        iNow--;
+        if(iNow == -1) {
+            iNow = aLi.length - 1;
+        }
+        changeImg(iNow);
+    }
+    oNext.onclick = function(){
+        iNow++;
+        if(iNow==aLi.length){
+            iNow = 0;
+        }
+        changeImg(iNow);
+
+    }
+
+    function changeImg(idx){
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].className=" ";
+            aImg[i].className=" ";
+        }
+        aLi[idx].className="selected";
+        aImg[idx].className="selected";
+    }
+    var timer;
+    function run(){
+        timer =setInterval(function() {
+            oNext.onclick()
+        },2000);
+    }
+    run();
+    oContainer.onmouseover = function(){
+        clearInterval(timer);
+    }
+    oContainer.onmouseout = function(){
+        run();
+    };
+</script>
+</body>
+</html>
