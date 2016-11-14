@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            border: 0;
+        }
+
+        #aa {
+            border: 1px solid;
+        }
+
+        #bb {
+            width: 600px;
+            height: 600px;
+            position: absolute;
+        }
+
+        #container {
+            position: relative;
+
+        }
+
+        #big-box {
+            position: absolute;
+            left: 310px;
+            top: 0;
+            display: none;
+            width:500px ;
+            height:500px;
+            overflow: hidden;
+        }
+
+        #float {
+            width: 100px;
+            height: 100px;
+            background: #cccccc;
+            position: absolute;
+            left: 0;
+            top: 50px;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+            display: none;
+
+        }
+
+        #small-box {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #mask{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            background: #cccccc;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="small-box">
+        <div id="float"></div>
+        <img id="aa" src="img/22154301.jpg" alt=""/>;
+        <div id="mask"></div>
+    </div>
+    <div id="big-box">
+        <img id="bb" src="img/22154301.jpg" alt=""/>;
+    </div>
+</div>
+<script>
+    var oContainer = document.getElementById("container");
+    var oSmallBox = document.getElementById("small-box");
+    var oFloat = document.getElementById("float");
+    var oBigBox = document.getElementById("big-box");
+    var oBb = document.getElementById("bb")
+    oSmallBox.onmouseover = function () {
+        oBigBox.style.display="block";
+        oFloat.style.display="block";
+
+    }
+    oSmallBox.onmousemove = function (e) {
+        e = e || window.event;
+
+
+
+        var iLeft = e.clientX - oFloat.offsetWidth/2;
+        var iTop = e.clientY -oFloat.offsetHeight/2;
+
+        if(iLeft>=oSmallBox.offsetWidth/2){
+            iLeft=oSmallBox.offsetWidth-oFloat.offsetWidth;
+        }
+        if(iLeft<=0){
+            iLeft=0;
+        }
+        if(iTop>=oSmallBox.offsetHeight-oFloat.offsetHeight){
+            iTop=oSmallBox.offsetHeight-oFloat.offsetHeight;
+        }
+        if(iTop<=0){
+            iTop=0
+        }
+
+        oFloat.style.left = iLeft+ "px" ;
+        oFloat.style.top = iTop + "px";
+
+
+
+        var fScaleX=iLeft/(oSmallBox.offsetWidth-oFloat.offsetWidth);
+        var fScaleY=iTop/(oSmallBox.offsetHeight-oFloat.offsetHeight);
+        oBb.style.left = -fScaleX*(oBb.offsetWidth-oBigBox.offsetWidth) + 'px';
+        oBb.style.top=-fScaleY*(oBb.offsetHeight-oBigBox.offsetHeight) + 'px';
+        return false;
+    }
+    oSmallBox.onmouseout = function(){
+        oBigBox.style.display="none"
+        oFloat.style.display="none"
+    }
+
+
+</script>
+</body>
+</html>
