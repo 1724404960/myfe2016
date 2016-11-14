@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>滚动条</title>
+    <style>
+        #container {
+            width: 300px;
+            height: 305px;
+            position: relative;
+            overflow: hidden;
+            background: #cccccc;
+        }
+
+        #content {
+            width: 280px;
+            height: 550px;
+            position: absolute;
+        }
+
+        #scroll-bar {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: #aaaaaa;
+            width: 20px;
+            height: 305px;
+        }
+
+        #scroll-btn {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #00ff00;
+
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">
+        21世纪是一个互联网主宰世界发展脚步的时代，随着国家“互联网+”政策的推广，中国的互联网发展正面临着前所未有的大好机遇。作为一个信管专业的学生，我结合着自己的喜好以及专业特性，决定在未来成为Web前端方向的高级专业人才，借助互联网时代之飓风，成就一番作为。关于我的具体的职业生涯规划，我打算从职业发展方向，职业发展目标，和职业发展计划三个角度来阐述。
+        近年来，web前端这一行业异军突起，web前端人才成为当下乃至以后互联网企业竞相争夺的宝贵资源。就目前的web前端行业发展来看，作为web前端人，一般的走向无非是技术和管理两条路线之一。然而我本人对技术方面特别感兴趣，因此，我打算在未来成为资深web前端工程师或者资深web架构师这类的技术性人才。也就是说职业发展方向是技术方向，职业发展目标成为资深web前端开发工程师。
+        路漫漫其修远兮，梦想之旅并非一路坦途。通过自己和往届学长以及导师咨询，以及自己查阅相关资料后，为这个目标指定了一系列的学习方法和成长规划。制定的方法如下：
+        第一、梳理知识架构；
+        梳理知识架构的目的在于，我们要了解清楚，哪些技术是前置、哪些技术是后继，那些技术是深度、哪些技术是广度，按照这两个维度梳理好知识架构之后，我们才能准确地制定清晰的成长目标、高效的成长计划。
+        第二、分解目标；
+    </div>
+    <div id="scroll-bar">
+        <span id="scroll-btn"></span>
+    </div>
+</div>
+<script>
+    var oContainer = document.getElementById("container");
+    var oContent = document.getElementById("content");
+    var oScrollBtn = document.getElementById("scroll-btn");
+    oScrollBtn.onmousedown = function (e) {
+        e = e || window.event;
+        iDisX = e.clientX;
+        iDisY = e.clientY - oContainer.offsetTop - oScrollBtn.offsetTop;
+        document.onmousemove = function (e) {
+            e = e || window.event;
+            var iTop = e.clientY - oContainer.offsetTop - iDisY;
+            if (iTop <= 0) {
+                iTop = 0;
+            }
+            if (iTop >= oContainer.offsetHeight - oScrollBtn.offsetHeight) {
+                iTop = oContainer.offsetHeight - oScrollBtn.offsetHeight;
+            }
+            oScrollBtn.style.top = iTop + "px";
+            var fScale = iTop / (oContainer.offsetHeight - oScrollBtn.offsetHeight);
+            oContent.style.top = -fScale * (oContent.offsetHeight - oContainer.offsetHeight) + "px";
+            return false;
+        };
+        document.onmouseup = function () {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+    };
+</script>
+</body>
+</html>
