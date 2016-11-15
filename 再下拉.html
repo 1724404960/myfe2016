@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width:400px;
+            height:200px;
+            position: relative;
+            overflow: hidden;
+        }
+        #content{
+            width:380px;
+            height:400px;
+            position: absolute;
+        }
+        #scroll-bar{
+            width:20px;
+            height:200px;
+            background: #aaaaaa;
+            position: absolute;
+            left:375px;
+            top:0;
+        }
+        #scroll-btn{
+            width: 20px;
+            height:20px;
+            background: #ffff00;
+            position: absolute;
+            left:0;
+            top:0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="content">   到了这个阶段，我也没什么好说的了，如果能达到这个阶段，就证明后续的成长之路是异彩纷呈的，是成为一个资深WEB前端工程师，还是成为一个资深WEB架构师，亦或其他，都要具体分析自身的特点和兴趣所在。如果是资深的前端工程师，我觉得更重要的是去作新技术的研究，互联网技术发展速度日新月异，不断学习新技术，否则就被淘汰。此外，我还要在知识的广度、深度方面最好能挑选一个自己最擅长和最感兴趣的一两个领域深入钻研，不要挑太多，多而不精。如果是资深的WEB架构师之路，我计划要深入了解后台技术，这种深入了解一定要伴随着实际的项目开发，基本方法是：按照别人设计的架构实现几个Server——》自己设计并实现几个Server。
+        相信在在该职业生涯规划的指导下，在我的不懈努力下，未来当是有所期盼的，不多说了，加油吧，年轻人，站在互联网的风口浪尖下，借助梦想的翅膀，可劲儿的飞吧！
+    </div>
+    <div id="scroll-bar">
+            <span id="scroll-btn"></span>
+    </div>
+</div>
+<script>
+    var oBtn = document.getElementById("scroll-btn");
+    var oScb = document.getElementById("scroll-bar");
+    var oContent = document.getElementById("content");
+    var oContainer = document.getElementById("container");
+    oBtn.onmousedown = function (e){
+        e = e || window.event;
+        iDisY = e.clientY  - oScb.offsetTop;
+        document.onmousemove = function (e){
+            e = e || window.event;
+            var iTop = e.clientY - oContainer.offsetTop - iDisY;//注意此处是e.clientY
+            if(iTop<=0){
+                iTop=0;
+            }
+            if(iTop>=oContainer.offsetHeight-oBtn.offsetHeight){
+                iTop=oContainer.offsetHeight-oBtn.offsetHeight;
+            }
+            oBtn.style.top = iTop+"px";
+            var fScale = iTop/(oContainer.offsetHeight - oBtn.offsetHeight);
+            oContent.style.top = -fScale*(oContent.offsetHeight - oContainer.offsetHeight) + "px";
+            return false;
+        }
+        document.onmouseup = function (){
+            document.onmousemove=null;
+            document.onmouseup=null;
+        }
+
+    };
+
+
+
+
+</script>
+
+
+
+</div>
+</body>
+</html>
