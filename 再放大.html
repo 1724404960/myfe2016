@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width:400px;
+            height:400px;
+            overflow: hidden;
+        }
+        #small{
+            width:400px;
+            height:400px;
+
+        }
+        #big{
+            width:800px;
+            height:800px;
+            position: absolute;
+            left:410px;
+            top:0;
+        }
+        #float{
+            background: #cccccc;
+            width:100px;
+            height:100px;
+            position: absolute;
+            left:0;
+            top:0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="small">
+        <img id ="small-pic" src = "img/1.jpg">
+        <div id="float"></div>
+    </div>
+    <div id = "big">
+        <img id ="big-pic"   src = "img/2.jpg">
+    </div>
+</div>
+</body>
+</html>
