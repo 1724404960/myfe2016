@@ -10,20 +10,25 @@
 //    每次由计算机随机产生3个1-9之间(包括1和9）的随机数，
 //    当这3个随机数中有一个数字为8时，就算赢了一次，要求利用函数计算获胜率。
 
-    //function getRangeRandom(low,high){
-    //    return Math.ceil()random()*(high-low)+low
-        
-   // }
-    for(var i=0;i<3;i++) {
-        var a=Math.floor(Math.random() * 9 + 1);
-        console.log(a)
-
-        if (a == 8) {
-            console.log("you are lucky dog")
-        } else {
-            console.log("sorry")
-        }
+    function getRangeRandom(low,high) {
+        return Math.ceil(Math.random() * (high - low)) + low
     }
+    function getLucky(num){
+        for(var i=0;i<3;i++){
+            var a=getRangeRandom(1,9);
+            if(a==num){
+                return true;
+            }
+     }return false;//写到这而不是21行的目的是若第一次找不到8，但是还得抽数字啊，
+     // 不是可以抽三个嘛，若写到21行的意思是若找不到8，则不再执行循环
+    }
+
+    var count = 0;
+    for(i=0;i<10000;i++){
+        if(getLucky(8))
+        count++;
+    }
+    document.write(count/10000)
 //    if(){
 //        return true;
 //    }else{
@@ -31,7 +36,7 @@
 //    }
 //    count=0;
 //    count++
-   
+
 
 </script>
 </body>

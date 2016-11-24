@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    编制一个从字符串中收集数字字符（"0"',"1"，…"9"）的函数CollectDigits(s)' +
+//    '，它从字符串s中顺序取出数字，并且合并为一个独立的字符串作为函数的返回值' +
+//    '。例如函数调用CollectDigits("1abc23def4"）的返回值是字符串"1234"。
+//1.先读，2.再取数字。3.合并数字
+//碰到问题：不会读取一个数的类型
+//错误例子
+    function CollectDigits(s){
+        var result="";
+        for(var i=0;i< s.length;i++){
+            if(s.charAt(i)>="0" && s.charAt(i)<="9"){
+                result+= s.charAt(i)
+            }
+        }
+        return result;
+    }
+    document.write(CollectDigits("1a2c3s"))
+//    var a=123;
+////    typeof a;证明他是错误用法。啥都输不出
+//    function CollectDigits(s){
+//        var result="";
+////        var ch=s.charAt(i);放到这里输出111111
+//        for(var i=0;i< s.length;i++){
+//            var ch=s.charAt(i);
+//        if(ch>="0" && ch<="9"){
+//            result+= ch;
+//        }
+//    }
+//    return result;
+//}
+//   document.write(CollectDigits("1a2c3s"))
+</script>
+</body>
+</html>

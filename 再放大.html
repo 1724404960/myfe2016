@@ -11,19 +11,31 @@
         #container{
             width:400px;
             height:400px;
-            overflow: hidden;
         }
         #small{
             width:400px;
             height:400px;
+            position: relative;
 
         }
+        #mask{
+            width: 400px;
+            height:400px;
+            position: absolute;
+            left: 0;
+            top:0;
+            background: #eeeeee;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
         #big{
-            width:800px;
-            height:800px;
+            width:500px;
+            height:500px;
             position: absolute;
             left:410px;
             top:0;
+            display:none;
+            overflow: hidden;/*话说他的作用好强大啊可以让那个大图片只在这个盒子里各种动，否则大图片就会不受限制的和左面的图片重合*/
         }
         #float{
             background: #cccccc;
@@ -33,6 +45,15 @@
             left:0;
             top:0;
             display: none;
+            opacity: 0.4;
+            filter: alpha(opacity=40);
+        }
+        #big-pic{
+            position: absolute;
+            width: 800px;
+            height:800px;
+            left: 410px;
+            top:0;
         }
     </style>
 </head>
@@ -41,10 +62,51 @@
     <div id="small">
         <img id ="small-pic" src = "img/1.jpg">
         <div id="float"></div>
+        <div id="mask"></div>
     </div>
     <div id = "big">
         <img id ="big-pic"   src = "img/2.jpg">
     </div>
 </div>
+<script>
+    var oFloat = document.getElementById("float");
+    var oSmallBox = document.getElementById("small");
+    var oBigBox = document.getElementById("big");
+    var oBigPic = document.getElementById("big-pic");
+    oSmallBox.onmouseover = function() {
+        oFloat.style.display = "block";
+        oBigBox.style.display = "block";
+    }
+    oSmallBox.onmousemove = function(e){
+        e = e || window.event;
+        var iTop = e.clientY-oFloat.offsetHeight/2;
+        var iLeft = e.clientX-oFloat.offsetWidth/2;
+        if(iLeft<=0){
+            iLeft=0
+        }
+        if(iLeft>=oSmallBox.offsetWidth/2){
+            iLeft=oSmallBox.offsetWidth-oFloat.offsetWidth
+        }
+        if(iTop<=0){
+            iTop=0
+        }
+        if(iTop>=oSmallBox.offsetHeight-oFloat.offsetHeight){
+            iTop=oSmallBox.offsetHeight-oFloat.offsetHeight
+        }
+        oFloat.style.left=iLeft+"px";
+        oFloat.style.top=iTop+"px";
+        var fScaleX=iLeft/(oSmallBox.offsetWidth-oFloat.offsetWidth);
+        var fScaleY=iTop/(oSmallBox.offsetHeight-oFloat.offsetHeight);
+        oBigPic.style.left=-fScaleX*(oBigPic.offsetWidth-oBigBox.offsetWidth)+"px";
+        oBigPic.style.top=-fScaleY*(oBigPic.offsetHeight-oBigBox.offsetHeight)+"px";
+        return false;
+    }
+    oSmallBox.onmouseout = function(){
+        oFloat.style.display = "none";
+        oBigBox.style.display = "none";
+    }
+
+
+</script>
 </body>
 </html>

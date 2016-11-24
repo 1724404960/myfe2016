@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    编写程序，根据用户输入的数值，计算其平方、平方根和自然对数    哪个函数啊。
+    var num = window.prompt("你还在犹豫什么，请输入一个数吧");
+    var a1=document.write(count(num))
+    var b1=document.write(count1(num,2));
+    var c1=document.write(count2(num));
+    function count(x){
+       return Math.sqrt(x);
+    }
+  //  document.write(count1(num,2));
+    function count1(a,b){
+        return Math.pow(a,b);
+    };
+ //   document.write(count2(num))
+    function count2(y){
+        return Math.log(y)
+    }
+    var arr=[a1,b1,c1];
+    for(var i=0;i<arr.length;i++){
+        document.write(arr[i]+"<br>")
+    }
+</script>
+</body>
+</html>

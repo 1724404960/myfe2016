@@ -2,9 +2,57 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>拖拽</title>
+    <style>
+        #div1{
+            background: #ffff00;
+            width:300px;
+            height:300px;
+            position: absolute;<!--目的是避免在文字下面，始终上不去 -->
+            left:0;
+            top:0;
+        }
+
+    </style>
 </head>
 <body>
+xfg fh gfhfcj
+<div id="div1"></div>
+<script>
+    var iDisx=iDisY=0;
+    var oDiv=document.getElementById("div1");
+    oDiv.onmousedown = function(e){
+        e = e || window.event;
+         iDisX = e.clientX-oDiv.offsetLeft;
+         iDisY = e.clientY-oDiv.offsetTop;
 
+        document.onmousemove = function(e){
+            e = e || window.event;
+            var iLeft = e.clientX - iDisX;
+            var iTop = e.clientY - iDisY;
+            if(iLeft>=document.documentElement.clientWidth-oDiv.offsetWidth){
+                iLeft=document.documentElement.clientWidth-oDiv.offsetWidth;
+            }
+            if(iLeft<=10){
+                iLeft=0;
+            }
+            if(iTop>= document.documentElement.clientHeight-oDiv.offsetHeight){
+                iTop= document.documentElement.clientHeight-oDiv.offsetHeight;
+            }
+            if(iTop<=10){
+                iTop=0;
+            }
+            oDiv.style.left=iLeft+"px";
+            oDiv.style.top = iTop+"px"
+            return false;
+        }
+        document.onmouseup = function(){
+            document.onmousemove =null;
+            document.onmouseup =null;
+        }
+    }
+
+
+</script>
 </body>
 </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //第一种解法
+    // 编写一个非递归函数factorial(n)，计算12!-10!的结果。
+
+//    var result=1;
+//        for(var i=1;i<=12;i++){
+//            result*=i;
+//
+//        }
+//    document.write("12的阶乘是"+result+"<br>");
+//
+//
+//
+//    var test=1;
+//        for(var i=1;i<=10;i++){
+//            test*=i;
+//
+//        }
+//    document.write("10的阶乘是"+test+"<br>")
+//    var s=result-test;
+//    document.write("12-10的阶乘是"+s)
+ //第二种解法
+   function factorial(n){
+        return n>1?n*factorial(n-1):1;
+    }
+    document.write("12的阶乘-10的阶乘"+(factorial(12)-factorial(10)))
+</script>
+
+
+</body>
+</html>

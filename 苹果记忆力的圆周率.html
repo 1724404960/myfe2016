@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    8.编写函数，用下面的公式计算π的近似值。
+
+//    在页面上输出当n=100，500，1000，10000时π的近似值。
+    function getPI(n){
+        var result=0;
+        for(var i=1;i<=n;i++){
+            result+=4* Math.pow(-1,i-1)/(2*i-1);
+        }
+        return result;
+    }
+//    document.write(getPI(100));
+//    document.write(getPI(500));
+//    document.write(getPI(1000));
+    var arr=[100,500,1000,10000];
+    for(var i=0;i<arr.length;i++){
+        document.write(getPI(arr[i])+"<br>");
+    }
+
+</script>
+</body>
+</html>

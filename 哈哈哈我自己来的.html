@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var now=new Date();//因为下面要用到它,意思是根据日才能获得年么
+    //console.log(now.getDate())
+    var year=now.getFullYear();
+    console.log(year)
+    getYear(year)
+    function getYear(a){
+        if((a%4==0&&a%100!==0)||(a%400==0)){
+            console.log("yes")
+        }else{
+            console.log("no")
+        }
+    }
+
+
+</script>
+</body>
+</html>

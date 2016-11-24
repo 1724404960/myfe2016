@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    5.编制一个将两个字符串交叉合并的函数Merge(s1,s2)，
+//    例如Merge("123","abc"）的返回结果是"1a2b3c"，
+//    如果两个字符串的长度不同，那么就将多余部分直接合并到结果字符串的末尾
+//    ，如Merge("123456",''abc''）的返回结果是”1a2b3c456”。
+//想法是利用下标对应，将第二个字符串与第一个字符串下标相等的字符串到第一个字符串后面，
+//那意思得先定义两个字符串,要取到字符串的每个字符那得先循环,把一个字符添到另一个字符的后面，
+// 怎么破，
+    function Merge(s1,s2){
+        var s1="";
+        var s2="";
+        for(var i=0;i<s1.length;i++){
+            if(s1[i].style.index==s2[i].style.index){
+                s1[i]=s1+s2[i]
+            }
+        }
+    }
+    document.write(Merge(s1,s2))
+    var s1="123";
+    var s2="abc";
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var a=window.prompt("请输入你的第1门成绩");
+//    var b=window.prompt("请输入你的第2门成绩");
+//    var c=window.prompt("请输入你的第3门成绩");
+//    var d=window.prompt("请输入你的第4门成绩");
+//    var e=window.prompt("请输入你的第5门成绩");
+//    var f=window.prompt("请输入你的第6门成绩");
+//    var g=window.prompt("请输入你的第7门成绩");
+//    var sum=parseInt(a)+parseInt(b)+parseInt(c)+parseInt(d)+parseInt(e)+parseInt(f)+parseInt(g);
+//    document.write("你的总成绩是"+sum+"<br>")
+//    if(parseInt(a)<=60||parseInt(b)<=60||parseInt(c)<=60||parseInt(d)<=60||parseInt(e)<=60||parseInt(f)<=60||parseInt(g)<=60){
+//        document.write("不及格成绩是"+this)
+//    }
+    var scores=new Array(7);
+    var sum =0;
+    for(var i=0;i<scores.length;i++) {
+        scores[i] = parseFloat(prompt("请输入你的第" + (i + 1) + "门成绩", "0"));
+        sum += scores[i];
+    }
+        document.write("你的总成绩是" + sum + "<br>");
+        document.write("你的平均成绩是" + sum / scores.length + "<br>")
+    for(var i=0;i<scores.length;i++){
+        if (scores[i] < 60) {
+        document.write("你的不及格成绩是" + scores[i] + "<br>")
+    }
+}
+
+
+
+</script>
+</body>
+</html>

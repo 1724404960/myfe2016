@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var msg = window.prompt("请输入你的年龄");
+    //alert("请输入你的年龄")
+    judge(msg)//我大概明白了函数调用的问题，
+    //儿童：年龄＜14；青少年：14<=年龄＜24；青年：24<年龄＜40;
+    //中年：40＜=年龄＜60; 老年：年龄>=60）
+    function judge(age){
+       if(age<14){
+           console.log("儿童")
+       }else if(age>=14 && age<24){
+           console.log("青少年")
+       }else if(age>24 && age<40){
+           console.log("青年")
+       }else if(age>40 && age<60){
+           console.log("中年")
+       }else//(age>=60)注意此处不写条件
+       {
+            console.log("老年")
+        }
+
+
+    }
+</script>
+</body>
+</html>

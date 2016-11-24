@@ -14,23 +14,29 @@
         a{
             text-decoration: none;
         }
+        img{
+            border:0;
+        }
         #container{
-            width:800px;
-            height:400px;
+            width:350px;
+            height:300px;
             margin:50px auto;
-            background:green;
             position: relative;
+            overflow: hidden;
         }
-        #img{
-            diaplay:none;
-        }
-        #img .selected{
-            display:block;
+        #content img{
+            width:350px;
+            height: 300px;
+            position: absolute;
+            left:0;
+            top:0;
+
         }
         #nav{
-            position: absolute;
+            position:absolute;
             right: 20px;
             bottom: 10px;
+            z-index: 9999;
         }
         #nav li {
             float: left;
@@ -41,23 +47,101 @@
             margin-right: 10px;
             text-align: center;
             line-height: 20px;
+            cursor: pointer;
+        }
+        #arrow {
+            position: absolute;/*注意此处也要设置定位，否则它会往下掉*/
+            left:40px;
+            bottom:10px;
+            cursor: pointer;
+            color:#ffffff;
+            width:50px;
+            z-index: 9999;
+        }
+        #prev{
+            margin-right:5px;
+            width: 20px;
+            height:20px;
+            background: #000000;
+        }
+        #next{
+            width: 20px;
+            height:20px;
+            background: #000000;
         }
     </style>
 </head>
 <body>
 <div id="container">
     <ul id="nav">
-        <li>1</li>
+        <li class="selected">1</li>
         <li>2</li>
         <li>3</li>
         <li>4</li>
     </ul>
-    <div id="img">
-    <a class="selected" href="#"><img src="img/bj_1_01_9coq.png"/></a>
-    <a href="#"><img src="img/bj_1_02_qze7.png"/></a>
-    <a href="#"><img src="img/bj_1_03_emta.png"/></a>
-    <a href="#"><img src="img/bj_1_04_mdn0.png"/></a>
+    <div id="content">
+        <img src="img/22154417.jpg"/></a>
+        <img src="img/22154301.jpg"/></a>
+        <img src="img/22154445.jpg"/></a>
+        <img src="img/22154445_1.jpg"/></a>
+    </div>
+    <div id="arrow">
+        <span id="prev">&lt;</span>
+        <span id="next">&gt;</span>
     </div>
 </div>
+<script src="sdf.js"></script>
+<script>
+    var oContainer = document.getElementById("container");
+    var oNav = document.getElementById("nav");
+    var aLi = oNav.getElementsByTagName("li");
+    var oContent = document.getElementById("content");
+    var aImg = oContent.getElementsByTagName("img");
+    var zIndex = 4;
+    var iNow = 0;
+    var oPrev =document.getElementById("prev");
+    var oNext =document.getElementById("next");
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].index=i;
+        aImg[i].style.zIndex =aImg.length-i;
+        aLi[i].onmouseover = function() {
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].className = "";
+            }
+            this.className = "selected";
+            var oImg=aImg[this.index];
+            oImg.style.opacity = 0;
+            oImg.style.filter="alpha(opacity=0)";
+            oImg.style.zIndex=++zIndex;
+            animate(oImg,{opacity:100});
+        }
+        oPrev.onclick = function(){
+            iNow--;
+            if(iNow == -1){
+                iNow = aLi.length - 1;
+            }
+            changeImg(iNow);
+        };
+        oNext.onclick = function(){
+            iNow++;
+            if(iNow == aLi.length){
+                iNow = 0;
+            }
+            changeImg(iNow);
+        };
+    function changeImg(){
+        var oImg=aImg[this.index];
+        oImg.style.opacity = 0;
+        oImg.style.filter="alpha(opacity=0)";
+        oImg.style.zIndex=++zIndex;
+        animate(oImg,{opacity:100});
+
+    }
+
+    }
+
+
+
+</script>
 </body>
 </html>
