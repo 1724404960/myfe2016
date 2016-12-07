@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    div{
+        width:200px;
+        height:200px;
+        position: absolute;
+    }
+    #container{
+
+        width:600px;
+        margin: 100px auto;
+    }
+    #aa{
+        border:dashed 2px #000000;
+        perspective: 1000px;
+        -webkit-transform-origin: 50% 50%;
+    }
+        #bb{
+            background: #ff0000;
+            transform: rotateY(-45deg);
+            -webkit-transform-style: preserve-3d;
+        }
+        #cc{
+            background: #ffff00;
+            transform: rotateY(-70deg);
+            -webkit-transform-style: preserve-3d;
+        }
+        #dd{
+            background: #00ff00;
+            transform: rotateY(80deg);
+            -webkit-transform-style: preserve-3d;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="aa">
+        <div id="bb">
+            <div id="cc">
+                <div id="dd">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>
