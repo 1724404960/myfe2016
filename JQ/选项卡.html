@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width:304px;
+            height:245px;
+            margin-left: 100px;
+            margin-top: 100px;
+            position: relative;
+            /*overflow: hidden;*/
+        }
+       ul{
+           list-style: none;
+       }
+       #nav{
+           margin-top: 100px;
+       }
+         #nav li{
+            width:80px;
+            height:40px;
+            text-align: center;
+            line-height: 40px;
+            background: #008080;
+            /*display:inline-block;*/
+            float: left;
+            /*overflow: hidden;*/
+            margin-right: 20px;
+        }
+        #content{
+            position: absolute;
+            left:0px;
+            top:40px;
+            border: 1px solid #333333;
+        }
+        #content div{
+            width:300px;
+            height:200px;
+            border: 1px solid #333333;
+            position: absolute;
+        }
+        #content div{
+            display: none;
+        }
+        #nav .selected{
+            background: #00ff00;
+        }
+        #content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul id="nav">
+        <li class="selected">左</li>
+        <li>中</li>
+        <li>右</li>
+    </ul>
+    <div id="content">
+        <div class="selected">11</div>
+        <div>22</div>
+        <div>33</div>
+    </div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $("li").on("click",function(){
+        //$(this).addClass('nav selected').siblings().css("background","#008080")
+        $(this).addClass('nav selected').siblings().removeClass('nav selected')
+        //$("#bb").css("display","block").removeClass('aa')
+        var $index=$(this).index();
+        $("#content div").eq($index).addClass('content selected').siblings().removeClass('content selected')
+    })
+</script>
+</body>
+</html>
