@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .sub{
+            float: left;
+            width: 100px;
+            height: 30px;
+        }
+        .sub-nav{
+            display: none;
+        }
+        .nav{
+            background:url("down.gif") no-repeat 1px;
+            width: 50px;
+            display: inline-block;
+            text-indent: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li class="sub">
+        <a href="#" class="nav">菜单1</a>
+        <ul class="sub-nav">
+            <li>子菜单11</li>
+            <li>子菜单12</li>
+        </ul>
+    </li>
+    <li class="sub">
+        <a href="#" class="nav">菜单2</a>
+        <ul class="sub-nav">
+            <li>子菜单21</li>
+            <li>子菜单22</li>
+        </ul>
+    </li>
+    <li class="sub">
+        <a href="#" class="nav">菜单3</a>
+        <ul class="sub-nav">
+            <li>子菜单31</li>
+            <li>子菜单32</li>
+        </ul>
+    </li>
+</ul>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $(".sub").hover(function(){
+            $(this).find(".nav").css("backgroundImage","url('up.gif')").end().children("ul").slideDown();
+        },function(){
+            $(this).find(".nav").css("backgroundImage","url('down.gif')").end().children("ul").slideUp();
+        })
+    })
+</script>
+</body>
+</html>
