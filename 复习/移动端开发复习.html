@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        h3{
+            width: 960px;
+            height:300px;
+            background: #bbbbbb;
+            text-align: center;
+            line-height:300px;
+            margin: 0 auto;
+            margin-top: 30px;
+        }
+        figure{
+            width: 960px;
+            height: 540px;
+            margin: 0 auto;
+            background: url("img/01.jpg");
+            background-size: 100% 100%;
+        }
+        section{
+            width: 960px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        #left{
+            width: 600px;
+            height: 300px;
+            background: #008200;
+            float: left;
+            display: table;
+            margin-right: 60px;
+        }
+        #right{
+            width: 300px;
+            height: 300px;
+            background: #000080;
+            float: left;
+            display: table;
+        }
+        footer{
+            clear: both;
+        }
+        section p{
+            display: table-cell;
+            vertical-align: middle;
+        }
+        @media (max-width: 959px) {
+            figure{
+                background-image: url("img/01_s_2x.jpg");
+                width: 100%;
+                height:0;
+                padding-top: 56%;
+            }
+            h3{
+                width: 100%;
+            }
+            section{
+                width: 100%;
+            }
+            #left{
+                width: 67%;
+                margin-right: 3%;
+            }
+            #right{
+                width: 30%;
+            }
+        }
+        @media (max-width: 480px) {
+            #right{
+                width: 100%;
+            }
+            #left{
+                width: 100%;
+            }
+            figure{
+                background-image: url("img/01_s.jpg");
+
+            }
+            h3{
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h3>页头</h3>
+</header>
+<nav>
+    <h3>导航</h3>
+</nav>
+<figure>
+    
+</figure>
+<section>
+    <div id="left">
+        <p>调浏览器工具的时候，有时候放在右边会把浏览器变小看不到效果，所以适当切换，不能老是一根经想理论是对的啊，就不做任何改变
+            17span得有宽高撑着她，不然光有背景图片也没用</p>
+    </div>
+    <div id="right">
+        <p>调浏览器工具的时候，有时候放在右边会把浏览器变小看不到效果，所以适当切换，不能老是一根经想理论是对的啊，就不做任何改变
+            17span得有宽高撑着她，不然光有背景图片也没用</p>
+    </div>
+</section>
+<footer>
+    <h3>页脚</h3>
+</footer>
+</body>
+</html>
