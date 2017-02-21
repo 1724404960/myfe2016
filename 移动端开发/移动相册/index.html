@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>我的相册</title>
+    <style>
+    *{
+        margin:0;
+        padding: 0;
+    }
+        html,body{
+            width: 100%;
+            height:100%;
+        }
+    </style>
+    <link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+    <div id="big"></div>
+    <!--大盒子存放大照片，小盒子存放小照片，一开始加载进来的16张小图片都是放到小盒子里-->
+    <div id="small"></div>
+
+    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="//code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script>
+    $(function(){
+        var num=16;
+        var distance=2;
+        var tempDistance=0;
+        var arr=[];
+        var count=0;
+        var $big=$("#big");
+        var $small=$("#small")
+        for(var i=0;i<num;i++){
+            var oImg=new Image();
+            oImg.onload=function(){
+                count++;
+                if(count==num){
+                    loadSuccess();
+                }
+            }
+            oImg.src="img/"+(i+1)+".jpg";
+            oImg.index=i+1;
+            oImg.className = "animated bounceIn";
+            arr.push(oImg);
+        }
+        $small.on("tap","img",function(e){
+            $small.css("display","none");
+            var index=this.index;
+            $big.css({
+                height: $(document.body).height(),
+//                height:$(document.body).height(),
+                display:"block",
+                background:'url("img/'+index+'.large.jpg") no-repeat center',
+                backgroundSize:"contain"
+            })
+            e.preventDefault();
+        })
+
+
+        $big.on("tap",function(e){
+//            点它让它变成相册,她消失，大盒子出现
+            $big.css("display","none");
+            $small.css("display","block");
+            e.preventDefault();
+
+        })
+        function loadSuccess(){
+            arr.sort(function(a,b){
+                return a.index- b.index;
+            });//加载成功了先排序，之后再显示到屏幕中
+            var oClientWidth=$(document.body).width();
+            for(var i=0;i<num;i++){
+                if(i%4==0){
+                    tempDistance=0
+                }else{
+                    tempDistance=2
+                }
+                $(arr[i]).css({
+                    width:(oClientWidth-3*distance)/4,
+                    height:(oClientWidth-3*distance)/4,
+                    marginRight:tempDistance,
+                    marginTop:tempDistance
+                });
+                $small.append($(arr[i]));
+            }
+        };
+    })
+    </script>
+</body>
+</html>
