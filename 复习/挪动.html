@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #aa,#bb{
+            float:left;
+            margin-right: 20px;
+        }
+        /*#aa,#dd,#qq,#ww{*/
+            /*width: 200px;*/
+            /*height: 30px;*/
+            /*background: #005839;*/
+            /*color: #FFFFFF;*/
+            /*text-align: center;*/
+            /*line-height: 30px;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div id="aa">
+    <select multiple id="left" style="width:120px;height:200px">
+        <option>01</option>
+        <option>02</option>
+        <option>03</option>
+        <option>04</option>
+        <option>05</option>
+    </select>
+    <div id="ss">选中添加到右边&gt&gt</div>
+    <div id="dd">全部选中添加到右边&gt&gt</div>
+</div>
+<div id="bb">
+    <select multiple id="right" style="width:120px;height:200px">
+        <option>01</option>
+        <option>02</option>
+    </select>
+    <div id="qq">选中删除到左边&lt&lt</div>
+    <div id="ww">全部选中选中删除到左边&lt&lt</div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $("#ss").on("click",function(){
+            $("#left option:selected").appendTo($("#right"));
+        })
+    $("#dd").on("click",function(){
+        $("#left option").appendTo($("#right"));
+    })
+
+
+</script>
+</body>
+</html>
