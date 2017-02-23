@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table		{ border:0;border-collapse:collapse;}
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        th{
+            width: 200px;
+            text-indent: -170px;
+            border-bottom: 1px solid #000000;
+        }
+        /*thead{*/
+            /*border-bottom: 1px solid #000000;*/
+        /*}*/
+        .menu{
+           background:#008200;
+        }
+        .selected{
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>居住地</th>
+        <th>爱好</th>
+    </tr>
+    </thead>
+    <tr class="menu">
+        <td>菜单1</td>
+        <td></td>
+        <td></td>
+        <!--<td colspan="3"></td>-->
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>银川</td>
+        <td>女</td>
+    </tr>
+    <tr class="menu">
+        <td>菜单2</td>
+        <td></td>
+        <td></td>
+        <!--<td colspan="3"></td>-->
+    </tr>
+    <tr>
+        <td>王三</td>
+        <td>银川</td>
+        <td>女</td>
+    </tr>
+    <tr class="menu">
+        <td>菜单3</td>
+        <td></td>
+        <td></td>
+        <!--<td colspan="3"></td>-->
+    </tr>
+    <tr>
+        <td>张三</td>
+        <td>银川</td>
+        <td>女</td>
+    </tr>
+</table>
+</body>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(".menu").on("click",function(){
+//        $(this).css({
+//            background:"pink"
+//        }).toggle()
+        $(this).toggleClass("selected").nextUntil(".menu").toggle();
+        //$(this).toggleClass("selected").toggle();
+    })
+</script>
+</html>
