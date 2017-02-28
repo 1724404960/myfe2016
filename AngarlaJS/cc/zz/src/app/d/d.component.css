@@ -1,0 +1,6 @@
+.collapsible-section{
+    color:blue;
+}
+.collapsed .collapsible-section{
+    display: none;
+}
