@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>demo</title>
+    <style>
+        *{ padding:0; margin:0; }
+        body{ background:#fafafa; font-size:12px; }
+        .slider{ line-height:24px; width:700px; color:#7ecef4; margin:10px auto; background:#010e16; }
+        .slider dt{ background:#f5f5d2; padding-left:30px; cursor:pointer; overflow:hidden; background:#1b1b1b; border-bottom:1px solid #fff;  height:32px; line-height:32px; }
+        .slider dt.slider_open{background:#707070; color:# }
+        .slider dd{ display:none; background:#f1f1ea; height:160px; background:#111; border-bottom:1px dashed #fafafa; overflow:hidden;}
+        .slider dd p{ padding:10px 20px; overflow:hidden; }
+    </style>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script>
+        $(function(){
+//初始化变量
+            var flag = 0;
+            var $dt = $('.slider dt');
+            var $dd = $('.slider dd');
+//初始化状态
+            $dd.eq(0).show();
+            $dt.eq(0).css('cursor','default');
+//单击事件
+            $dt.click(function(){
+                if($dt.index(this) == flag) return false;
+                flag = $dt.index(this);
+                $dd.not($dd.eq(flag)).slideUp();
+                $dd.eq(flag).slideDown();
+                $dt.eq(flag).css('cursor','default').addClass('slider_open');
+                $dt.not($dt.eq(flag)).css('cursor','pointer').removeClass('slider_open');
+            });
+        });
+    </script>
+</head>
+<body>
+<dl class="slider">
+    <dt class="slider_open">我是标签一111</dt>
+    <dd><p>自从BBSSD还在10-20人的年代 , 某一天黑上开了两把恶魔之击出来后 ,我就此步上狂战的不归路 (泪 , 一路走来也4.5年了 , 我觉得自己不算是什么高端玩家因为我不像LandSoul那些大神可以弄出试算表或是Rawr等计算工具我也不是什么数据狂人 , 因为我很多东西都是想到才去wiki或是EJ上面找答案真要说的话 , 我只是一个花比较多心思并且会去找答案去理解答案的玩家吧 lol任何一个肯花点时间去找寻答案并且去了解狂战的人懂的绝对都不会比我少 ,真的 , 请多利用搜寻功能跟各大网站Link , 这样讨论</p></dd>
+    <dt>我是标签2222</dt>
+    <dd><p>自从很多东西都是想到才去wiki或是EJ上面找答案真要说的话 , 我只是一个花比较多心思并且会去找答案去理解答案的玩家吧 lol任何一个肯花点时间去找寻答案并且去了解狂战的人懂的绝对都不会比我少 ,真的 , 请多利用搜寻功能跟各大我很多东西都是想到才去wiki或是EJ上面找答案真要说的话 , 我只是一个花比较多心思并且会去找答案去理解答案的玩家吧 lol任何一个肯花点时间去找寻答案并且去了解狂战的人懂的绝对都不会比我少 ,真的 , 请多利用搜寻功能跟各大网站Link , 这样讨论</p></dd>
+    <dt>我是标签3333</dt>
+    <dd><p>自从BBSS数据狂人 , 因为我很多东西数据狂人 , 因为我很多东西数据狂人 , 因为我很多东西数据狂人 , 因为我很多东西数据狂人 , 因为我很多东西数据狂人 , 因为我很多东西数据狂人 , 因为我很多东西数据狂人 , 因为我很多东西数据狂人 , 因为我很多东西数据狂人 , 因为我很多东西西都是想到才去wiki或是EJ上面找答案真要说的话 , 我只是一个花比较多心思并且会去找答案去理解答案的玩家吧 lol任何一个肯花点时间去找寻答案并且去了解狂战的人懂的绝对都不会比我少 ,真的 , 请多利用搜寻功能跟各大网站Link , 这样讨论</p></dd>
+    <dt>我是标签444</dt>
+    <dd><p>我很多东西都是想到才去wiki或是EJ上面找答案真要说的话 , 我只是一个花比较多心思我很多东西都是想到才去wiki或是EJ上面找答案真要说的话 , 我只是一个花比较多心思我很多东西都是想到才去wiki或是EJ上面找答案真要说的话 , 我只是一个花比较多心思多东西都是想到才去wiki或是EJ上面找答案真要说的话 , 我只是一个花比较多心思并且会去找答案去理解答案的玩家吧 lol任何一个肯花点时间去找寻答案并且去了解狂战的人懂的绝对都不会比我少 ,真的 , 请多利用搜寻功能跟各大网站Link , 这样讨论</p></dd>
+</dl>
+</body>
+</html>
