@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            width: 200px;
+            height:200px;
+            /*display: none;*/
+        }
+        #div1{
+            background: yellow;
+        }
+        #div2{
+            background: green;
+        }
+        #div3{
+            background: hotpink;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">注意喔</button>
+<div id="div1"></div>
+<div id="div2"></div>
+<div id="div3"></div>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("#btn").on("click",function(){
+//            $("#div1").fadeIn(100);
+//            $("#div2").fadeIn("slow");
+//            $("#div3").fadeIn("fast");
+//            $("#div1").fadeOut(100);
+//            $("#div2").fadeOut("slow");
+//            $("#div3").fadeOut("fast");
+//            $("#div1").fadeToggle(100);
+//            $("#div2").fadeToggle("slow");
+//            $("#div3").fadeToggle("fast");
+            $("#div1").fadeTo(100,0.5);
+            $("#div2").fadeTo("slow",0.3);
+            $("#div3").fadeTo("fast",0.8);
+
+        })
+    })
+</script>
+</body>
+</html>
