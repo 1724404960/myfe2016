@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+    </style>
+</head>
+<body>
+<ul id="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script>
+    var oUl=document.getElementById("ul1");
+    oUl.onclick=function(e){
+        e = e || window.event;
+        var target= e.target|| e.srcElement;
+        if(target.tagName=="LI"){
+            alert(target.innerHTML)
+        }
+        //本来是想给li绑点击事件，让他输出里面的内容，但是给爸爸绑了，
+        // 由于事件冒泡所以相当于给儿子绑事件
+    }
+</script>
+</body>
+</html>
