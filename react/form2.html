@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打印Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="build/react.js"></script>
+<script src="build/react-dom.js"></script>
+<script src="build/browser.js"></script>
+<script type="text/babel">
+    var Component=React.createClass({
+        getInitialState:function() {
+            return {
+                username: ''
+            }
+        },
+        submithandler:function (e) {
+            console.log({
+               username:this.state.username,
+               sex:this.state.sex,
+                school:this.state.school
+            });
+            e.preventDefault()
+        },
+        usernamehandler:function (e) {
+            this.setState({
+                username:e.target.value
+            })
+        },
+        sexhandler:function (e) {
+            this.setState({
+                sex:e.target.value
+            })
+        },
+        schoolhandler:function (e) {
+            this.setState({
+                school:e.target.value
+            })
+        },
+        render:function () {
+            return(
+                <form onSubmit={this.submithandler}>
+                    <label htmlFor="male">用户名
+                    <input type="text" value={this.state.username} onChange={this.usernamehandler}/>
+                    </label>
+                    <br/>
+                    <br/>
+                    <label htmlFor="female">
+                    男:<input type="radio" name="sex" id="female" value="男" onChange={this.sexhandler}/>
+                    </label>
+                    <label htmlFor="male">
+                    女:<input type="radio" name="sex" id="male" value="女" onChange={this.sexhandler}/>
+                    </label>
+                    <br/>
+                    <br/>
+                    学校:<select onChange={this.schoolhandler}>
+                        <option value="Linda" >Linda</option>
+                        <option value="理工" >理工</option>
+                        <option value="黑大" >黑大</option>
+                    </select>
+                    <br/>
+                    <br/>
+                    <button type="submit">提交</button>
+                </form>
+            );
+        }
+    });
+    ReactDOM.render(
+        <Component/>,
+        document.getElementById('app')
+    )
+</script>
+
+</body>
+</html>
