@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style></style>
+</head>
+<body>
+	<ul>
+		<li class="aa"></li>
+		<li></li>
+		<li class="aa"></li>
+		<li></li>
+	</ul>
+<script type="text/javascript">
+	function getstyle(classname,context) {
+        context = context || document;
+
+
+        var all = document.getElementsByTagName('*');
+        var target=[];
+        if (document.getElementsByClassName) {
+            context = document;
+            target= context.getElementsByClassName(classname);
+
+        } else {
+            target = context.getElementsByTagName(classname);
+            console.log(213)
+    }
+
+//		target.style.background="red";
+		for(var i=0;i<target.length;i++) {
+            target[i].style.background="red";
+		}
+	}
+    getstyle('aa');
+</script>
+</body>
+</html>
