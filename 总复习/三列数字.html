@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul,li{
+            list-style: none;
+        }
+        li{
+            position: relative;
+            height: 30px;
+        }
+        div{
+            text-align: center;
+
+        }
+        ul div:nth-child(3n-2){
+            left: 10px;
+            width: 100px;
+            position: absolute;
+            /*top:0;*/
+
+        }
+        ul div:nth-child(3n-1){
+            margin-left: 100px;
+            margin-right: 100px;
+
+        }
+        ul div:nth-child(3n){
+            right: 10px;
+            width: 100px;
+            position: absolute;
+            top:0;
+
+
+        }
+    </style>
+</head>
+<body>
+<ul id="container">
+    <li>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    </li>
+    <li>
+    <div>4</div>
+    <div>5</div>
+    <div>6</div>
+    </li>
+    <li>
+    <div>7</div>
+    <div>8</div>
+    <div>9</div>
+    </li>
+</ul>
+</body>
+</html>
