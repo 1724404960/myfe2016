@@ -9,31 +9,35 @@
 	<ul>
 		<li class="aa"></li>
 		<li></li>
-		<li class="aa"></li>
+		<li class="aa bb"></li>
 		<li></li>
 	</ul>
 <script type="text/javascript">
-	function getstyle(classname,context) {
-        context = context || document;
-
-
-        var all = document.getElementsByTagName('*');
-        var target=[];
+	function getstyle(classname) {
+        var result = [];
         if (document.getElementsByClassName) {
-            context = document;
-            target= context.getElementsByClassName(classname);
+            result= document.getElementsByClassName(classname);
+       }
+    else
+        {
+            var all = document.getElementsByTagName('*');
+            var reg = new RegExp('\\b' + classname +'\\b');//匹配到的结果
+//        		console.log(result);/\baa\b/
+            //匹配classname,要求是那个classname的两边都是空格的
+            for (var i = 0; i < all.length; i++) {
+                if (reg.test(all[i].className)) {
+                    result.push(all[i]);
+                }
+            }
 
-        } else {
-            target = context.getElementsByTagName(classname);
-            console.log(213)
+        }
+        return result;
     }
-
-//		target.style.background="red";
-		for(var i=0;i<target.length;i++) {
-            target[i].style.background="red";
-		}
-	}
-    getstyle('aa');
+    var arr=getstyle('aa');
+    console.log(arr);
+    for (var i = 0; i < arr.length; i++) {
+        arr[i].style.background = "red";
+    }
 </script>
 </body>
 </html>
