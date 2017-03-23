@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 40px;
+            height:40px;
+            border-radius: 50%;
+        }
+        #ball1{
+            background: palevioletred;
+        }
+        #ball2{
+            background:green;
+        }
+        #ball3{
+            background:yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="ball1" style="margin-left: 0"></div>
+    <div id="ball2" style="margin-left: 0"></div>
+    <div id="ball3" style="margin-left: 0"></div>
+</div>
+<script>
+    var oDiv1=document.getElementById('ball1');
+    var oDiv2=document.getElementById('ball2');
+    var oDiv3=document.getElementById('ball3');
+    function animation(elem,position,cb) {
+        //第二个参数指的是球运动的目的地，第三个参数指的是求运动之后的handler
+        setTimeout(function () {
+            var marginL=parseInt(elem.style.marginLeft);
+            if(marginL<position){
+                marginL++;
+                elem.style.marginLeft=marginL+"px";
+                animation(elem,position,cb);
+            }else if(marginL>position){
+                marginL--;
+                elem.style.marginLeft=marginL+"px";
+                animation(elem,position,cb);
+            }else{
+                cb && cb();
+            }
+        },15)
+    }
+    animation(oDiv1,100,function () {
+        animation(oDiv2,100,function (){
+            animation(oDiv3,100,function (){
+                animation(oDiv3,50,function (){
+                    animation(oDiv2,20,function (){
+                        animation(oDiv1,10,function (){
+                        })
+                    })
+                })
+            })
+        })
+    })
+</script>
+</body>
+</html>
