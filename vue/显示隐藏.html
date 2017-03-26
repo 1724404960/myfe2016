@@ -1,0 +1,66 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+    <!--<meta charset="UTF-8">-->
+    <!--<title></title>-->
+    <!--<style>-->
+
+        <!--.red{-->
+            <!--width: 200px;-->
+            <!--height: 200px;-->
+            <!--background: red;-->
+        <!--}-->
+        <!--.font{-->
+            <!--font-size:30px;-->
+        <!--}-->
+    <!--</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="app">-->
+    <!--<button @click="fn" v-show="red">click</button>-->
+<!--</div>-->
+<!--<script src="vue.min.js"></script>-->
+<!--<script>-->
+    <!--var vm = new Vue({-->
+        <!--el:'#app',-->
+        <!--data:{-->
+            <!--isShow:false,-->
+        <!--},-->
+        <!--methods:{-->
+
+        <!--}-->
+    <!--});-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if、v-else、v-show</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="Show" style="width: 200px;height:200px;background:red">显示</p>
+    <p v-else></p>
+    <button @click="fn()">改变</button>
+</div>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        data:{
+            Show:true
+        },
+        methods:{
+            fn:function(){
+                if(this.Show==true){}else{}
+                this.Show=!this.Show;
+            }
+        }
+    });
+</script>
+</body>
+</html>
