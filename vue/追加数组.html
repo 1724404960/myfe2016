@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    name:<input type="text" v-model="name">
+    age:<input type="text" v-model="age">
+    <button @click="add">add</button>
+    <ul>
+        <li v-for="val in arr">{{val}}<button @click="del">del</button></li>
+    </ul>
+</div>
+<script src="vue.min.js"></script>
+<script>
+    //    大问题：两个input的内容不知道怎么获取和显示在页面上
+    var vm=new Vue({
+        el:'#app',
+        data:{
+            name:'',
+            age:'',
+            arr:[],
+        },
+        methods:{
+            add:function () {
+                this.arr.push(this.name+' '+this.age);
+                this.name='';
+                this.age='';
+//                    在这里把它只为空的原因是保证每一次对话框上面都是空的干净的让
+//                用户好天数据
+            },
+            del:function (index) {
+                this.arr.splice(index,1);
+                //根据它的索引删除一个元素，第三个参数是替换为谁
+                this.name='';
+                this.age='';
+            }
+
+        }
+    })
+</script>
+</body>
+</html>
