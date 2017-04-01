@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        ul, li, span, body, html {
+            padding: 0;
+            margin: 0;
+            font-family: '微软雅黑';
+            color: #333;
+        }
+
+        body {
+            background: #eee;
+        }
+
+        .container1:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .list {
+            width: 150px;
+            background: #ffd847;
+        }
+
+        .list > li {
+            display: block !important;
+            line-height: 30px;
+        }
+
+        .list li {
+            list-style: none;
+        }
+
+        .list > li > ul {
+            position: absolute;
+            background: #ffd847;
+            left: 150px;
+            top: 0;
+            width: 150px;
+            display: none;
+        }
+
+        .list > li > ul a {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            text-align: center;
+        }
+
+        .list > li > ul > li:hover {
+            background: #febd04;
+        }
+
+        .list > li:hover {
+            position: relative;
+            background: #febd04;
+        }
+
+        .list > li span {
+            color: #fff;
+            text-align: center;
+            display: block;
+            cursor: pointer;
+            height: inherit;
+        }
+
+        .list > li:hover > ul {
+            display: block;
+        }
+
+        .list .workplace {
+            position: relative;
+        }
+
+        .list .workplace > ul {
+            display: none;
+            width: 150px;
+            background: #ffd847;
+        }
+
+        .list .workplace:hover ul {
+            display: block;
+            position: absolute;
+            left: 150px;
+            top: 0;
+        }
+
+        .list .workplace:hover ul li {
+            background: #ffd847;
+        }
+
+        .list .workplace:hover ul li:hover {
+            background: #febd04;
+        }
+
+        .container1 {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+        .container1 > div {
+            float: left;
+        }
+
+        .conleft {
+            width: 30%;
+        }
+
+        .conright {
+            width: 65%;
+            background: #fff;
+            padding: 0 20px;
+        }
+
+        .conright textarea {
+            padding: 5px;
+            font-size: 14px;
+            outline:none;
+        }
+
+        .conright input {
+            outline: none;
+            display: inline-block;
+        }
+
+        .conright h1 {
+            display: block;
+            font-weight: 500;
+            padding-bottom: 20px;
+            margin-bottom: 0;
+        }
+
+        .conright h2 {
+            display: inline-block;
+            padding: 5px;
+            font-weight: 700;
+            color: #fff;
+            font-size: 20px;
+            background: rgba(13, 69, 241, 0.85);
+            border-radius: 5px;
+        }
+
+        .rttitle {
+            border-bottom: 1px solid #666;
+        }
+
+        .conright .spacemessage {
+            width: 500px;
+            margin: 0 auto;
+        }
+
+        .rightcon {
+            line-height: 40px;
+            font-size: 16px;
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .rightcon > div {
+            float: left;
+        }
+
+        .rightcon:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+        .rightcon > div:first-child {
+            margin-right: 20px;
+            width: 80px;
+            text-align: end;
+        }
+
+        .rightcon > div:last-child {
+            width: 400px;
+        }
+
+        .rightcon .inputarae {
+            display: inline-block;
+            width: 100%;
+            padding: 4px;
+            font-size: 14px;
+        }
+    </style>
+    <script src="js/camera.js"></script>
+</head>
+<body>
+<div class="container1">
+    <div class="conleft">
+        <ul class="list">
+            <li>
+                <span>社会服务</span>
+                <ul>
+                    <li><a href="#">旅游</a></li>
+                    <li><a href="#">健康养生</a></li>
+                    <li><a href="#">医疗</a></li>
+                    <li><a href="#">护理</a></li>
+                </ul>
+            </li>
+            <li>
+                <span>个人服务</span>
+                <ul>
+                    <li><a href="#">画室</a></li>
+                    <li><a href="#">体形室</a></li>
+                    <li><a href="#">书法室</a></li>
+                    <li class="workplace"><span>我的工作室</span>
+                        <ul>
+                            <li><a href="#">我要开工作室</a></li>
+                            <li><a href="#">查看我的工作室</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="conright">
+            <h1 class="rttitle">我要开工作室</h1>
+            <div class="workspace">
+                <div><h2>工作室信息</h2></div>
+                <div class="spacemessage">
+                    <div class="rightcon">
+                        <div>工作室名称</div>
+                        <div><input class="inputarae" type="text" placeholder="请输入工作室名"></div>
+                    </div>
+                    <div class="rightcon">
+                        <div>工作室类别</div>
+                        <div>
+                            <input type="radio" name="workspace" value="stadio" name="stadio" id="stadio"/>
+                            <label for="stadio">
+                                画室
+                            </label>
+                            <input type="radio" name="workspace" id="training" value="training"/>
+                            <label for="training">
+                                形体室
+                            </label>
+                            <input  type="radio" id="handwriting" name="workspace"  value="handwriting"/>
+                            <label for="handwriting">
+                                书法室
+                            </label>
+                            <input type="radio" name="workspace" value="record" id="record"/>
+                            <label for="record">
+                                录音棚
+                            </label>
+                            <input type="radio"  name="workspace" id="others"/>
+                            <label for="others">其他</label>
+
+                        </div>
+                    </div>
+                    <div class="rightcon">
+                        <div>工作室详情</div>
+                        <div>
+                            <textarea cols="55" rows="10" placeholder="请填写工作室详情"></textarea>
+                        </div>
+                    </div>
+                    <div class="rightcon">
+                        <div>我的作品</div>
+                        <div>
+                            <div id="">
+
+
+                                <!--input-group start-->
+                                <div class="input-group row">
+                                    <div class="col-sm-9 big-photo">
+                                        <div id="preview">
+                                            <img id="imghead" border="0" src="img/photo_icon.png" width="90" height="90"
+                                                 onclick="document.getElementById('previewImg').click();"/>
+                                        </div>
+                                        <input type="file" onchange="previewImage(this)" style="display: none;" id="previewImg">
+                                    </div>
+                                </div>
+                                <div id="imgcontainer">
+                                    <img id="imgss"src="" alt="">
+                                </div>
+                                <!--input-group end-->
+
+                            </div>
+                            <a href="javascript:void(0);" class="footer-sns-weixin" target="_blank" title="微信">
+                                <i class="footer-sns-weixin-expand"></i>        </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="workspace">
+                <div><h2>审核信息</h2></div>
+                <div class="spacemessage">
+                    <div class="rightcon">
+                        <div>真实姓名</div>
+                        <div><input class="inputarae" type="text" placeholder="真名"></div>
+                    </div>
+                    <div class="rightcon">
+                        <div>身份证号</div>
+                        <div>
+                            <input name="workspace" class="inputarae" type="text" value="" placeholder="身份证号"/>
+                        </div>
+                    </div>
+                    <div class="rightcon">
+                        <div>联系电话</div>
+                        <div>
+                            <input type="text" class="inputarae" placeholder="联系电话"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+</body>
+</html>
