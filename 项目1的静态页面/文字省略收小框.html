@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            overflow : hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            /*表示省略为几行*/
+            -webkit-box-orient: vertical;
+            /*overflow:hidden;*/
+            /*text-overflow:ellipsis; */
+            /*white-space:nowrap;这是单行文字的*/
+        }
+
+    </style>
+</head>
+<body>
+<div style="width:300px;">
+    被截取的文字,被22截取的文字被截6取7的4文字11被截取的文字55被截取的文字被截取的文字被截取的文字被截取的文字
+</div>
+</body>
+</html>
