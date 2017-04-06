@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            margin:auto auto;
+            width:500px;
+            height:600px;
+        }
+        body{
+            background: #aaaaaa;
+        }
+        div{
+            position: absolute;
+            transition: all 2s ease;
+            /*当绝对定位且不设置方向值的元素在inline box里时:*/
+
+            /*未设置的方向(top, right, bottom, left)的值是auto.*/
+            /*此元素containing block的左边缘应该是该元素前一个元素(空白符除外)的margin右边缘.*/
+            /*此元素containing block的上边缘应该是该元素所在的line box的content box的上边缘*/
+            /*如果left的值为auto, 则该元素会定位到其containing block的左边缘. 如果top的值*/
+            /*为auto,*/
+            /*则该元素会定位到其containing block的上边缘.*/
+            /*当绝对定位且不设置方向值的元素在block box里时:*/
+
+            /*未设置的方向(top, right, bottom, left)的值是auto.*/
+            /*此元素的containing block的左边缘应该是其父元素创建的content box的左边缘.*/
+            /*如果该元素前面存在一个与其相邻的block box, 则该元素的containing block的上边缘应该是*/
+            /*这个block box的margin下边缘.*/
+            /*如果该元素是其父元素的第一个子元素, 则该元素的containing block的上边缘应该是其父元素*/
+            /*创建的content box的上边缘.*/
+            /*如果left的值为auto, 则该元素会定位到其containing block的左边缘. 如果top的值为auto, */
+            /*则该元素会定位到其containing block的上边缘.*/
+
+        }
+        #good{
+            transform: rotate(30deg);
+            border:10px solid #ffffff;
+            /*position: absolute;*/
+        }
+        #better{
+            transform: rotate(-30deg);
+            border:10px solid #ffffff;
+            /*position: absolute;*/
+        }
+         #container div:hover{
+            z-index: 1;
+        transform: scale(1.2) rotate(0deg);
+        /*注意此处权重值，要是不加#container，没有这两个效果*/
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="good">
+        <img src="../img/01.jpg">
+    </div>
+    <div id="better">
+        <img src="../img/img01.jpg">
+    </div>
+</div>
+</body>
+</html>
