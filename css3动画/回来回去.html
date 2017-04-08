@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            position: relative;
+            width: 42px;
+            height: 42px;
+            left: 600px;
+            top: 300px;
+        }
+
+        img {
+            position: absolute;
+            left:0;
+            top:0;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="imgs">
+        <img src="../img/img2/close.png" id="one">
+        <img src="../img/img2/full.png" id="two">
+        <img src="../img/img2/open.png" id="four">
+        <img src="../img/img2/prev.png" id="five">
+        <img src="../img/img2/refresh.png" id="six">
+        <img src="../img/img2/home.png" id="three">
+    </div>
+</div>
+<script>
+        var oImg = document.getElementById("imgs");
+        var aImg = document.getElementsByTagName("img");
+        var oImg1 = document.getElementById("three");
+        var bflag = false;//表示要打开
+        var iNow = 0;
+        oImg1.onclick = function () {
+            if (bflag == false) {
+                oImg1.style.transform = "rotate(-360deg)";
+                for (var i = 0; i < aImg.length - 1; i++) {
+                    //aImg[i].style.transform = "rotate(" + i * 22.5 + "deg)";
+                    aImg[i].style.transform = "rotate(360deg)";
+                    aImg[i].style.left = -300 * (Math.sin(i * 22.5 * 2 * (Math.PI) / 360)) + "px";
+                    aImg[i].style.top = -300 * (Math.cos(i * 22.5 * 2 * (Math.PI) / 360)) + "px";
+                    aImg[i].style.transitionDelay = i * 50 + "ms";
+                    aImg[i].currentransform = aImg[i].style.transform;
+                }
+            } else {
+                oImg1.style.transform = "rotate(0deg)";
+                for (var i = 0; i < aImg.length - 1; i++) {
+                    aImg[i].style.transform = "rotate(0deg)";
+                    aImg[i].style.left = 0 + "px";
+                    aImg[i].style.top = 0 + "px";
+                    aImg[i].style.transitionDelay = (aImg.length - i) * 50 + "ms";
+                    aImg[i].currentransform = aImg[i].style.transform;
+                }
+            }
+            bflag = !bflag;
+        }
+            for(var i = 0; i < aImg.length - 1; i++){
+                aImg[i].state=false;
+                aImg[i].onclick=function(){
+                    if(!this.state){
+                        this.style.transform=this.currentransform+ " scale(2)";
+                        this.addEventListener("webkitTransitionEnd", fn);
+                    }
+                    function fn() {
+                        this.style.transform=this.currentransform;
+                       this.state=!this.state;
+                    }
+                }
+            }
+        </script>
+</body>
+</html>
