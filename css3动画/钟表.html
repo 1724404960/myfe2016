@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #circle{
+            width: 400px;
+            height:400px;
+            border-radius: 50%;
+            border:2px solid #00ff00;
+            margin: 100px auto;
+            position: relative;
+            background-image: url("..img/");
+        }
+        ul{
+            list-style: none;
+        }
+        #scale li{
+            width: 5px;
+            height:14px;
+            background: #aaaaaa;
+            position: absolute;
+            left: 200px;
+            top:0;
+            transform-origin:0 200px;
+        }
+        #scale li:nth-child(5n+1){
+            width: 7px;
+            height:20px;
+            background: orange;
+        /*使用公式 (an + b)。*/
+        /*描述：表示周期的长度，n 是计数器（从 0 开始），b 是偏移值。*/
+        /*在这里，我们指定了下标是 3 的倍数的所有 p 元素的背景色：*/
+         /*p:nth-child(3n+0)*/
+         /*{*/
+          /*background:#ff0000;*/
+           /*}*/
+        }
+        #hour,#minute,#second{
+            position: absolute;
+            left:200px;
+            transform-origin: bottom;
+
+        }
+        #hour{
+            width:10px;
+            height:35px;
+            background:#000000;
+            top:160px;
+        }
+        #minute{
+            width:8px;
+            height:60px;
+            background: #ff0000;
+            top:135px;
+        }
+        #second{
+            width: 5px;
+            height:85px;
+            background:pink;
+            top:110px;
+        }
+        #number{
+            font-size: 30px;
+            color:brown;
+
+        }
+        #one{
+            position: absolute;
+            top:20px;
+            left:190px;
+            font-size: 30px;
+            color:brown;
+        }
+        #two{
+            position: absolute;
+            left:360px;
+            top:185px;
+        }
+        #three{
+            position: absolute;
+            left:190px;
+            top:345px;
+        }
+        #four{
+            position: absolute;
+            top:180px;
+            left:25px;
+        }
+    </style>
+</head>
+<body>
+<div id="circle">
+    <ul id="scale"></ul>
+    <div id="hour"></div>
+    <div id="minute"></div>
+    <div id="second"></div>
+    <ul id="number">
+        <li id="one">12</li>
+        <li id="two">3</li>
+        <li id="three">6</li>
+        <li id="four">9</li>
+    </ul>
+</div>
+<script>
+    var oCircle=document.getElementById("circle");
+    var oHour=document.getElementById("hour");
+    var oMinute=document.getElementById("minute");
+    var oSecond=document.getElementById("second");
+    var oScale=document.getElementById("scale");
+    var str="";
+for(var i=0;i<60;i++){
+    str+="<li style='transform:rotate("+i*6+"deg)'></li>"
+}
+oScale.innerHTML=str;
+//    var str1="";
+//    for(var i=0;i<60;i++){
+//        str1+="<li style='transform:rotate("+i*90+"deg)'></li>"
+//    }
+//  oCircle.innerHTML=str1;
+
+    function run(){
+        var now=new Date();
+        var second=now.getSeconds();
+        var minute=now.getMinutes()+second/60;
+        var hour=now.getHours()+minute/60;
+
+
+        oHour.style.transform="rotate("+ hour * 30 +"deg)";
+        oMinute.style.transform="rotate("+minute*6+"deg)";
+        oSecond.style.transform="rotate("+second*6+"deg)";
+    }
+    run();
+    setInterval(run,1000);
+</script>
+</body>
+</html>
