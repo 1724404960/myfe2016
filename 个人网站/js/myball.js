@@ -9,8 +9,8 @@ $(function () {
     // $(window).scroll(function () {
     //
     $(window).on('scroll',function () {
-        // alert(123)
-        if($(this).scrollTop()>=800){
+        var $flag=false;
+        if($(this).scrollTop()>=400 && !$flag){
             // alert(3)
             fillball("drawing",60,"greenyellow");
             fillball("drawing2",40,"red");
@@ -20,10 +20,10 @@ $(function () {
             fillball("drawing6",30,"#000000");
             fillball("drawing7",40,"yellow");
             fillball("drawing8",69,"orange");
+            $flag=true;
         }
 
          });
-
     });
 // fillball("drawing",60,"greenyellow");
 // fillball("drawing2",40,"red");
@@ -52,8 +52,8 @@ function fillball(id,value,color){
         context.stroke();
         context.closePath();
         context.strokeStyle=color;
-        context.beginPath()
-        context.arc( 1/2*width,1/2*height,R,Math.PI/2-(count*2*Math.PI)/200,Math.PI/2+(count*2*Math.PI)/200)
+        context.beginPath();
+         context.arc( 1/2*width,1/2*height,R,Math.PI/2-(count*2*Math.PI)/200,Math.PI/2+(count*2*Math.PI)/200)
 
         context.stroke()
 
