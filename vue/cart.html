@@ -26,24 +26,25 @@
     </tr>
     </thead>
     <tbody>
-        <tr v-for="product in productList" @click="addProct(product)">
+        <tr v-for="product in productList">
             <td>
-                <input type="checkbox">
+                <input type="checkbox" @click="addProct(product)">
             </td>
             <td>
                 <img :src="product.productImg" alt="" width="100">
             </td>
             <td>{{product.productName}}</td>
             <td></td>
-            <td>19</td>
+            <td>{{product.productPrice}}</td>
             <td>
-                <button>-</button>
+                <button @click="minus(product)">-</button>
                 <input type="text" v-bind:value="product.productQuentity">
                 <button @click="add(product)">+</button>
             </td>
             <!--<td>{{product.productPrice*product.productQuentity}}</td>-->
             <td>{{product.productPrice*product.productQuentity}}</td>
-            <td>删除</td>
+            <td><a href="javascript:;" @click="deleteP(product)">删除</a></td>
+            <!--<td><a href="JavaScript:;" @click="deleteProduct(product)">删除</a></td>-->
         </tr>
     </tbody>
     <tfoot>
@@ -60,6 +61,7 @@
 <script>
     var vm=new Vue({
         el:'#cart',
+        //
         data:{
             totalmoney:0,
             productList:[],
@@ -72,11 +74,31 @@
             add:function(product){
                 product.productQuentity++;
                 this.counttotalmoney();
-                console.log(this.totalmoney);
+//                console.log(this.totalmoney);
+                //console.log(this.counttotalmoney);
+            },
+            minus:function(product){
+//                product.productQuentity--;
+//                if(product.productQuentity>=1){
+//                    this.counttotalmoney();
+//                }
+                if(product.productQuentity<=1){
+                    product.productQuentity=1
+                }else{
+                    product.productQuentity--;
+                    this.counttotalmoney();
+                }
+            },
+            deleteP:function(product){
+//                product.remove();
+                this.productList.splice(this.productList.indexOf(product),1);
             },
             addProct:function(product){
+                //这块用到的想法是点一次前面的勾选栏，就决定要不要把它加入购物车列表，
+                //那证明一开始定义购物车列表也是空的
                 if(this.cartList.indexOf(product)==-1){
-                    this.cartList.push(product)
+                    this.cartList.push(product);
+                    //如果购物列表里面没有，我就把点击的这个推进去，如果有那就把它删了
                 }else{
                     this.cartList.splice(this.cartList.indexOf(product),1)
                 }
@@ -84,17 +106,10 @@
 
             },
             counttotalmoney:function(){
-//                var that=this;
-//                this.totalmoney=0;
-//                this.cartList.forEach(function(product){
-//                    that.totalmoney+=product.productQuentity*product.productPrice
-//
-//                })
-                var _this=this;
-                _this.totalmoney=0;
+                var that=this;
+                this.totalmoney=0;
                 this.cartList.forEach(function(product){
-                    _this.totalmoney+=product.productQuentity*product.productPrice
-
+                    that.totalmoney+=product.productQuentity*product.productPrice;
                 })
             }
 
@@ -104,6 +119,10 @@
                 axios.get('cart.json').then(function(res){
                     that.productList=res.data.result.productList
                 })
+            //上来就加载静态资源的，通过ajax获取数据，然后再把获取到的数据（res.data）
+            //下面的result.productList取出来赋给商品列表，那就说明定义商品列表的时候，
+            // 它一开始是空的，
+
         }
     })
 </script>
