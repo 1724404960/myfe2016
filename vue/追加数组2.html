@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    姓名：<input type="text" v-model="name">
+    年龄<input type="text" v-model="age">
+    <button v-on:click="add">add</button>
+    <ul>
+        <li v-for="val in arr">{{val}}<button v-on:click="del">del</button></li>
+    </ul>
+</div>
+<script src="vue.min.js"></script>
+<script>
+    var vue=new Vue({
+        el:'#app',
+        data:{
+            name:'',
+            age:'',
+            arr:[]
+
+        },
+        methods:{
+            add:function () {
+                this.arr.push(this.name+' '+this.age);
+                this.name='';
+                this.age='';
+            },
+            del:function (index) {
+                this.arr.splice(index,1)
+            }
+        }
+    })
+</script>
+</body>
+</html>
