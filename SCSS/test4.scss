@@ -1,0 +1,28 @@
+@import "test3";
+@import "common";
+$color:#000;
+$color:#000 !default;
+$nav:aa;
+body{
+  background: $color;
+  #header{
+    width: 200px;
+  }
+  .#{$nav}{
+    background: $color;
+  }
+  a{
+    color:$color;
+    &:hover{
+      color:red;
+    }
+    b{
+      &:hover{
+        color:red;
+      }
+    }
+  }
+  .arrow{
+    @include arrow('left',25px,red);
+  }
+}
