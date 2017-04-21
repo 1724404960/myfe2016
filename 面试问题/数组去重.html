@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //    var arr=[1,2,3,3,5];
+    //    var newArr=[];
+    //    for(var i=0;i<arr.length;i++){
+    //        for(var j=0;j<arr.length;j++){
+    //            if(i==j){
+    ////                newArr.push(this);
+    ////                console.log(typeof (newArr));
+    //                alert(i)
+    //            }
+    //        }
+    //    }
+
+//    var arr=[1,2,3,3,5];
+//    unique(arr);
+//    function unique(arr) {
+//        var result = [], isRepeated;
+//        for (var i = 0, len = arr.length; i < len; i++) {
+//            isRepeated = false;
+//            for (var j = 0, len = result.length; j < len; j++) {
+//                if (arr[i] == result[j]) {
+//                    isRepeated = true;
+//                    break;
+//                }
+//            }
+//            if (!isRepeated) {
+//                result.push(arr[i]);
+//            }
+//            console.log(result)
+//        }
+//        return result;
+//    }
+
+        var ar=[1,2,2,3,5,6];
+        var tmp = {},
+            ret = [];
+
+        for (var i = 0, j = ar.length; i < j; i++) {
+            if (!tmp[ar[i]]) {
+                tmp[ar[i]] = 1;
+                ret.push(ar[i]);
+            }
+        }
+        console.log(ret);
+
+
+
+
+//最简单的一种判断方法
+//    var ar=[1,2,3,3,5];
+//    var newArr=[];
+//    for(var i=0;i<ar.length;i++){
+//        if( newArr.indexOf(ar[i])===-1){
+//            newArr.push(ar[i]);
+//        }
+//    }
+//    console.log( newArr)
+</script>
+</body>
+</html>
