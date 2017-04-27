@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    function position(arr,item){
+//        for(var i=0;i<arr.length;i++){
+//            if(arr[i]==item){
+//                return i+1;
+//            }
+//        }
+//    }
+//    var ar=[1,2,3,3,4];
+//    var result=position(
+//        ar,4
+//    )
+//    console.log(result)
+
+
+     function indexOf(arr, item) {
+             for(var i = 0; i < arr.length; i++){
+                 if(arr[i] == item){
+                       return i;
+                        }
+             }
+            return -1;
+        }
+    var ar=[1,2,3,3,4];
+    var result=indexOf(
+        ar,4
+    )
+    console.log(result)
+
+    //问题元素的位置，是从0开始算起还是1啊
+
+</script>
+</body>
+</html>
