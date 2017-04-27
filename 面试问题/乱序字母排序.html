@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function sort(arr) {
+        var arr1 = arr.sort();
+        var arr2 = [];
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr1[i].charCodeAt() <= 91) {
+                arr2.push(arr1[i])
+            }
+        }
+        var arr3=arr1.concat(arr2);
+        var arr4=arr3.splice(0,arr2.length)
+        return arr3;
+    }
+    var ar=['a','r','c','e','b','B','C'];
+    var result=sort(ar)
+    console.log(result);
+</script>
+</body>
+</html>
