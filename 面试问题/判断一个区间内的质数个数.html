@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function primeNum(a,b) {
+        var arr=[];
+        for(var i=a;i<=b;i++){
+            var flag=true;
+            for(var j=2;j<=i/2;j++){
+                if(i%j==0){
+                    flag=false;
+                    break;
+                }
+            }
+            if(flag){
+                arr.push(i);
+            }
+        }
+        return arr;
+    }
+    var result=primeNum(1,10);
+    console.log(result);
+</script>
+</body>
+</html>
