@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        th{
+            width: 300px;
+            height:30px;
+            border:1px solid #000000;
+        }
+        tr{
+            /*width:200px;*/
+        }
+        td{
+            width: 150px;
+            height:30px;
+            border:1px solid #000000;
+        }
+        /*tbody{*/
+            /*width: 300px;*/
+        /*}*/
+        table{
+            border-collapse: collapse;
+            /*这句话作用十分强大，可以注掉试试*/
+        }
+        .init{
+            background: #0FD55C;
+        }
+        /*.selected{*/
+            /*border:1px solid #000000;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<form>
+    <table>
+        <thead>
+            <th colspan="2">鼠标点击表格就可以编辑</th>
+            <!--<tr><td>姓名</td><td>学号</td></tr>-->
+        </thead>
+        <tbody>
+            <tr class="init"><th>姓名</th><th>学号</th></tr>
+            <tr><td class="edible">张三0</td><td>1</td></tr>
+            <tr><td class="edible">张三1</td><td>2</td></tr>
+            <tr><td class="edible">张三2</td><td>3</td></tr>
+            <tr><td class="edible">张三3</td><td>14</td></tr>
+        </tbody>
+    </table>
+</form>
+<script src="jquery-1.12.4.js"></script>
+<script>
+     $(function(){
+         $(".edible").on("click",function(){
+             if($(this).has("input").size()==0){
+                 var $input='<input type="text"/>';
+                 //添加一个文本框
+                 var value=$(this).html();
+                 //获取到点击的内容
+                 $(this).html($input).find('input').val(value).trigger("focus")
+                 //点击的当前把他的内容换成文本框，然后找出里面input的value值并触发点击事件
+//                 $(this).html($input).find('input').val().trigger("focus")
+             }
+         })
+     })
+
+
+</script>
+</body>
+</html>
